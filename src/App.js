@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PlantSchedule from './components/plantSchedule';
 
-function App() {
-  return (
+class App extends React.Component {
+  render() {
+    return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          Your Plantr Watering Schedule
+        </h1>
       </header>
+      <div className="schedule" >
+        <PlantSchedule />
+      </div>
+      <div className="footer">
+      </div>
     </div>
-  );
+  )};
 }
 
 export default App;
