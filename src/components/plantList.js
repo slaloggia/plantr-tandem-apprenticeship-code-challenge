@@ -52,7 +52,7 @@ class PlantList extends Component {
         const weekendPlants = this.getWeekendPlants()
         if (weekendPlants.length > 0) {
             return weekendPlants.map(plant => {
-                return <li>{plant.name}</li>
+                return <li key={"key"+plant.name}>{plant.name}</li>
             })
         }
     }
