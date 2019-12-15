@@ -13,7 +13,7 @@ class PlantList extends Component {
                 <ul>
                     {this.listPlants()}
                 </ul>
-                {this.props.today.getDay() === 1 || this.props.today.getDay() === 5 ? this.getWeekendPlants() : null}
+                {this.props.today.getDay() === 1 || this.props.today.getDay() === 5 ? this.listWeekendPlants() : null}
             </div>
         )
     }
@@ -31,24 +31,32 @@ class PlantList extends Component {
 
     getPlants(date) {
         const todaysPlants = plants.filter(plant => {
-            return (
-            (this.compareDate(date) % this.getWaterInterval(plant) === 0) ? plant : null)
+            return (this.compareDate(date) % this.getWaterInterval(plant) === 0) ? plant : null
         })
         return todaysPlants
-
     }
 
     getWeekendPlants() {
-        let day = this.props.today.getDay()
-
-        if (day === 1) {
-            debugger
-
+        const today = this.props.today
+        const weekend = new Date(this.props.today)
+        if (today.getDay() === 1) {
+            weekend.setDate(today.getDate()-1)
         }
-        else if (day === 5) {
-            console.log(day)
+        else if (today.getDay() === 5) {
+            weekend.setDate(today.getDate()+1)
+        }
+        return this.getPlants(weekend)
+    }
+
+    listWeekendPlants = () => {
+        const weekendPlants = this.getWeekendPlants()
+        if (weekendPlants.length > 0) {
+            return weekendPlants.map(plant => {
+                return <li>{plant.name}</li>
+            })
         }
     }
+
 
 
     compareDate = (date) => { return ((date - startDate) / 1000) / 86400 }
