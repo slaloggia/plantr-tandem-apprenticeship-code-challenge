@@ -12,8 +12,8 @@ class PlantList extends Component {
             <div>
                 <ul>
                     {this.listPlants()}
+                    {this.props.today.getDay() === 1 || this.props.today.getDay() === 5 ? this.listWeekendPlants() : null}
                 </ul>
-                {this.props.today.getDay() === 1 || this.props.today.getDay() === 5 ? this.listWeekendPlants() : null}
             </div>
         )
     }
@@ -21,7 +21,7 @@ class PlantList extends Component {
     listPlants = () => {
         const todaysPlants = this.getPlants(this.props.today)
         return todaysPlants.map(plant => {
-            return <li>{plant.name}</li>
+            return <li key={"key"+plant.name}>{plant.name}</li>
         })
     }
 

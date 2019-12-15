@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(46, 139, 111)
+  background-image: url('https://img.freepik.com/free-vector/realistic-dark-tropical-leaves-background_23-2148387137.jpg?size=626&ext=jpg')
 }
 
 .App-logo {
@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: rgb(46, 139, 111);
+  background-color: rgb(5, 56, 39);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ li {
 
 .footer {
   height: 20px;
-  background-color: rgb(46, 139, 111);
+  background-color: rgb(5, 56, 39);
   position: relative
 }
 
